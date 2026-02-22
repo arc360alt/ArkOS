@@ -43,13 +43,14 @@ jobs:
       - name: Build ISO
         id: build
         run: |
+          mkdir -p output
           sudo podman run \
             --rm \
             --privileged \
             --pull=newer \
             --net=host \
             --security-opt label=type:unconfined_t \
-            -v ${{ github.workspace }}/disk_config/ISO.toml:/config.toml:ro \
+            -v ${{ github.workspace }}/disk_config/iso.toml:/config.toml:ro \
             -v ${{ github.workspace }}/output:/output \
             -v /var/lib/containers/storage:/var/lib/containers/storage \
             quay.io/centos-bootc/bootc-image-builder:latest \
