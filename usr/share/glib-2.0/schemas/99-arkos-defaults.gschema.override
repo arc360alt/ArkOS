@@ -1,0 +1,7 @@
+[org.gnome.desktop.background]
+picture-uri='file:///usr/share/backgrounds/ArkOS/light.png'
+picture-uri-dark='file:///usr/share/backgrounds/ArkOS/dark.png'
+picture-options='zoom'
+
+[org.gnome.desktop.wm.preferences]
+button-layout='appmenu:minimize,maximize,close'

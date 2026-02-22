@@ -22,3 +22,14 @@ dnf5 install -y tmux
 #### Example for enabling a System Unit File
 
 systemctl enable podman.socket
+
+dnf5 install -y @workstation-product-environment
+systemctl enable gdm
+
+# Install Flatpak
+
+dnf5 install -y flatpak
+flatpak remote-add --if-not-exists --system flathub https://flathub.org/repo/flathub.flatpakrepo
+
+# Brew Dependincies
+dnf5 install -y curl git gcc gcc-c++ make

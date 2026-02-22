@@ -3,7 +3,7 @@ FROM scratch AS ctx
 COPY build_files /
 
 # Base Image
-FROM ghcr.io/ublue-os/bazzite:stable
+FROM quay.io/fedora/fedora-bootc:43
 
 ## Other possible base images include:
 # FROM ghcr.io/ublue-os/bazzite:latest
@@ -38,3 +38,20 @@ RUN --mount=type=bind,from=ctx,source=/,target=/ctx \
 ### LINTING
 ## Verify final image and contents are correct.
 RUN bootc container lint
+
+COPY --from=ghcr.io/ublue-os/brew:latest /system_files /
+RUN systemctl enable brew-setup.service
+
+RUN rpm-ostree install btop fastfetch flatpak && \
+    ostree container commit
+
+COPY usr/lib/os-release /usr/lib/os-release
+COPY usr/share/backgrounds/ /usr/share/backgrounds/
+COPY usr/share/icons/ /usr/share/icons/
+COPY usr/share/pixmaps/ /usr/share/pixmaps/
+RUN gtk-update-icon-cache -f /usr/share/icons/hicolor/
+COPY usr/share/gnome-background-properties/ /usr/share/gnome-background-properties/
+COPY usr/share/glib-2.0/schemas/ /usr/share/glib-2.0/schemas/
+RUN glib-compile-schemas /usr/share/glib-2.0/schemas/
+COPY usr/etc/xdg/fastfetch/ /usr/etc/xdg/fastfetch/
+COPY usr/share/fastfetch/ /usr/share/fastfetch/

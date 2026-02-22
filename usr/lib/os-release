@@ -1,0 +1,8 @@
+NAME="ArkOS"
+PRETTY_NAME="ArkOS"
+ID=arkos-atomic
+ID_LIKE=fedora
+ANSI_COLOR="0;34"
+HOME_URL="https://arc360hub.com"
+LOGO=arkos
+VERSION_ID=43
