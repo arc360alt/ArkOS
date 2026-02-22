@@ -1,0 +1,3 @@
+[customizations.installer]
+  [customizations.installer.anaconda]
+    modules = ["anaconda-webui"]
