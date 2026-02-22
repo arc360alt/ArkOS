@@ -42,7 +42,9 @@ jobs:
 
       - name: Pull image
         run: |
-          sudo podman pull "${{ env.IMAGE_REGISTRY }}/${{ env.IMAGE_NAME }}:latest"
+          sudo podman pull \
+            --creds "${{ github.actor }}:${{ secrets.GITHUB_TOKEN }}" \
+            "${{ env.IMAGE_REGISTRY }}/${{ env.IMAGE_NAME }}:latest"
 
       - name: Build ISO
         id: build
