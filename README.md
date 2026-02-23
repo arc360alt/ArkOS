@@ -16,3 +16,7 @@ A full version of ArkOS made with UBlue
 - A CPU that was released before 2010
 - A GPU That isnt an Nvidia one (This will be supported in later releases)
 - A base level knowlage of Linux
+
+## Fixes that need to be done:
+- Fix AMD just not working at all
+- Change the installer art to show ArkOS and not Feodra.
