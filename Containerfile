@@ -55,3 +55,4 @@ COPY usr/share/glib-2.0/schemas/ /usr/share/glib-2.0/schemas/
 RUN glib-compile-schemas /usr/share/glib-2.0/schemas/
 COPY usr/etc/xdg/fastfetch/ /usr/etc/xdg/fastfetch/
 COPY usr/share/fastfetch/ /usr/share/fastfetch/
+COPY usr/share/anaconda/ /usr/share/anaconda/

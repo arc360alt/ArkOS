@@ -1,1 +1,2 @@
-# why
+[customizations.installer.kickstart]
+contents = ""

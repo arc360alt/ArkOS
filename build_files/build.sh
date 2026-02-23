@@ -33,3 +33,12 @@ flatpak remote-add --if-not-exists --system flathub https://flathub.org/repo/fla
 
 # Brew Dependincies
 dnf5 install -y curl git gcc gcc-c++ make
+
+# anaconda
+dnf5 install -y anaconda anaconda-gui anaconda-webui anaconda-install-env-deps
+
+# AMD Fixes
+dnf5 install -y mesa-dri-drivers mesa-vulkan-drivers xorg-x11-drv-amdgpu
+# AMD GPU kernel arguments
+mkdir -p /usr/lib/dracut/dracut.conf.d/
+echo 'kernel_cmdline="amdgpu.dc=1 radeon.si_support=0 amdgpu.si_support=1"' > /usr/lib/dracut/dracut.conf.d/99-amdgpu.conf
