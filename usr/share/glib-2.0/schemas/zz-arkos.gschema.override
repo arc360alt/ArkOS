@@ -1,0 +1,2 @@
+[org.gnome.shell]
+disabled-extensions=['background-logo@fedorahosted.org']
